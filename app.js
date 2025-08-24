@@ -8,6 +8,7 @@ import dotenv from 'dotenv';
 import authRoutes from './routes/auth.js';
 import taskRoutes from './routes/tasks.js';
 import userRoutes from './routes/users.js';
+import errorHandler from './middleware/errorHandler.js';
 
 dotenv.config();
 
@@ -41,13 +42,10 @@ app.get('/api/health', (req, res) => {
 });
 
 // Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ message: 'Something went wrong!' });
-});
+app.use(errorHandler);
 
-// 404 handler
-app.use('*', (req, res) => {
+// 404 handler - FIXED: Use a proper path instead of '*'
+app.use((req, res) => {
   res.status(404).json({ message: 'Route not found' });
 });
 
