@@ -42,7 +42,7 @@ A robust RESTful API for task management built with Node.js, Express, and MongoD
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/task-management-api.git
+   git clone https://github.com/shehzab/Task-Management-API.git
    cd task-management-api
    ```
 
